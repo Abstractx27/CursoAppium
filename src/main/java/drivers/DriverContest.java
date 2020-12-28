@@ -1,4 +1,4 @@
-package Drivers;
+package drivers;
 
 import io.appium.java_client.AppiumDriver;
 
@@ -12,6 +12,10 @@ public class DriverContest {
     }
 
     public static AppiumDriver getDriver(){
+        return driverManager.getDriver();
+    }
 
+    public static void quitDriver(){
+        driverManager.getDriver().quit();
     }
 }

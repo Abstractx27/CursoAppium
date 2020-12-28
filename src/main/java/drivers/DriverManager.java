@@ -1,4 +1,4 @@
-package Drivers;
+package drivers;
 
 import io.appium.java_client.AppiumDriver;
 import io.appium.java_client.android.AndroidDriver;
@@ -25,7 +25,7 @@ public class DriverManager {
         cap.setCapability("platformName",sistemaoperativo);
         cap.setCapability("app",aplicacion);
         if (!emulador){
-            cap.setCapability("udid","emulator-5554");
+            cap.setCapability("udid",udid);
         }
 
         driver = new AndroidDriver(server,cap);

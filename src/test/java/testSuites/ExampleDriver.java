@@ -1,14 +1,9 @@
 package testSuites;
 
-import io.appium.java_client.AppiumDriver;
-import io.appium.java_client.android.AndroidDriver;
-import org.openqa.selenium.remote.DesiredCapabilities;
 import org.testng.annotations.BeforeMethod;
 import org.testng.annotations.Test;
 
-import java.net.MalformedURLException;
-import java.net.URL;
-import java.util.concurrent.TimeUnit;
+import static drivers.DriverContest.setUp;
 
 public class ExampleDriver {
 
@@ -31,7 +26,7 @@ public class ExampleDriver {
         //driver = new AndroidDriver(server,cap);
         //driver.manage().timeouts().implicitlyWait(10, TimeUnit.SECONDS);
 
-        setUp
+        setUp("emulator-5554","android","C:\\apk\\registroDeUsuarios.apk","emulator-5554",true);
     }
 
     @Test

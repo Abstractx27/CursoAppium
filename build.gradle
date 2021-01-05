@@ -20,6 +20,8 @@ dependencies {
     implementation group: 'io.qameta.allure', name: 'allure-testng', version: '2.13.8'
     // https://mvnrepository.com/artifact/com.google.guava/guava
     implementation group: 'com.google.guava', name: 'guava', version: '30.1-android'
+    // https://mvnrepository.com/artifact/com.google.guava/guava
+    implementation group: 'com.google.guava', name: 'guava', version: '30.1-jre'
 
 
 

@@ -6,10 +6,10 @@ import io.qameta.allure.model.Status;
 import org.testng.annotations.AfterMethod;
 import org.testng.annotations.BeforeMethod;
 import org.testng.annotations.Test;
-import reports.Report;
-
+import testClases.Carrusel.Test_Carrusel;
 import static drivers.DriverContest.setUp;
 import static reports.Report.addStep;
+import static reports.Report.finalAssert;
 
 public class Example2 {
 
@@ -20,15 +20,23 @@ public class Example2 {
 
     @AfterMethod
     public void cerrarSession(){
-        Report.finalAssert();
+        //Report.finalAssert();
         DriverContest.quitDriver();
     }
 
-    @Test
+
     public void test1(){
         MobileElement botonNext = (MobileElement) DriverContest.getDriver().findElementById("com.rodrigo.registro:id/next");
         botonNext.click();
         botonNext.click();
-        addStep("Validar tercera Vista Carrusel",true, Status.PASSED,false);
+        addStep("Validar tercera Vista Carrusel",true, Status.FAILED,false);
+        finalAssert();
+    }
+
+    @Test(description = "Validación Carrusel")
+    public void Test_Carrusel(){
+        Test_Carrusel test = new Test_Carrusel();
+        test.validaciones();
+
     }
 }

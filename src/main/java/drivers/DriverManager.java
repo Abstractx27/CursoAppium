@@ -14,7 +14,7 @@ public class DriverManager {
 
     protected void iniciarSession(String devicename, String sistemaoperativo, String aplicacion, String udid, boolean emulador){
         try{
-            server = new URL("http://127.0.0.1:4723/wb/hub");
+            server = new URL("http://127.0.0.1:4723/wd/hub");
         }catch(
                 MalformedURLException e){
             e.printStackTrace();

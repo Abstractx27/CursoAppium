@@ -21,14 +21,14 @@ public class ExercisesTestNG {
     @Test(priority = 1, description = "Prueba 1")
     public void metodo3(){
         System.out.println("Test 1");
-        softAssert.fail("Fail SOFT");
+        //softAssert.fail("Fail SOFT");
         System.out.println("Test 1");
     }
     @Test(priority = 2, description = "Prueba 2")
     public void metodo4(){
         System.out.println("Test 2");
         Assert.assertTrue(true);
-        Assert.fail("FAIL");
+        //Assert.fail("FAIL");
         System.out.println("Test 2");
     }
     @AfterMethod

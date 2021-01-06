@@ -1,6 +1,6 @@
 package pages;
 
-import drivers.DriverContest;
+import drivers.DriverContext;
 import io.appium.java_client.AppiumDriver;
 import io.appium.java_client.MobileElement;
 import io.appium.java_client.pagefactory.AndroidFindBy;
@@ -15,7 +15,7 @@ public class CarruselPage {
 
     private AppiumDriver driver;
     public CarruselPage(){
-        this.driver = DriverContest.getDriver();
+        this.driver = DriverContext.getDriver();
         PageFactory.initElements(new AppiumFieldDecorator(driver),this);
     }
 

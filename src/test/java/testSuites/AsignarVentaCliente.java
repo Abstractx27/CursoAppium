@@ -4,12 +4,12 @@ import drivers.DriverContext;
 import org.testng.annotations.AfterMethod;
 import org.testng.annotations.BeforeMethod;
 import org.testng.annotations.Test;
-import testClases.Carrusel.AgregarClienteCase;
+import testClases.Carrusel.AsignarVentaCase;
 
 import static drivers.DriverContext.setUp;
 import static reports.Report.finalAssert;
 
-public class RegistrodeUsuarios {
+public class AsignarVentaCliente {
 
     @BeforeMethod
     public void iniciarSession(){
@@ -21,11 +21,12 @@ public class RegistrodeUsuarios {
         DriverContext.quitDriver();
     }
 
+    @Test(priority = 1, description = "Asignar Venta a Cliente")
+    public void test2(){
 
-    @Test
-    public void agregarCliente(){
-        AgregarClienteCase agregarClienteCase = new AgregarClienteCase();
-        agregarClienteCase.flujo();
+        AsignarVentaCase asignarVentaCase = new AsignarVentaCase();
+
+        asignarVentaCase.flujoTest();
         finalAssert();
     }
 }

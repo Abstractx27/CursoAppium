@@ -2,7 +2,7 @@ package drivers;
 
 import io.appium.java_client.AppiumDriver;
 
-public class DriverContest {
+public class DriverContext {
 
     private static DriverManager driverManager = new DriverManager();
 

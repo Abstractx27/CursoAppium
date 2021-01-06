@@ -1,11 +1,12 @@
 package pages;
 
-import drivers.DriverContest;
+import drivers.DriverContext;
 import io.appium.java_client.AppiumDriver;
 import io.appium.java_client.MobileElement;
 import io.appium.java_client.pagefactory.AndroidFindBy;
 import io.appium.java_client.pagefactory.AppiumFieldDecorator;
 import io.qameta.allure.model.Status;
+import org.openqa.selenium.By;
 import org.openqa.selenium.support.PageFactory;
 
 import java.util.List;
@@ -18,7 +19,7 @@ public class RegistroPage {
     private AppiumDriver driver;
 
     public RegistroPage(){
-        this.driver = DriverContest.getDriver();
+        this.driver = DriverContext.getDriver();
         PageFactory.initElements(new AppiumFieldDecorator(driver),this);
     }
 
@@ -87,5 +88,17 @@ public class RegistroPage {
 //            addStep("Error, cliente "+nombreCliente+" no encontrado",true, Status.FAILED,true);
 //        }
 
+    }
+
+    public void tapCliente(String nombreCliente){
+        System.out.println("[Registro Clientes] tap Cliente");
+
+        MobileElement cliente = (MobileElement) DriverContext.getDriver().findElement(By.xpath("//*[contains(@text,\""+nombreCliente+"\")]"));
+        if (cliente.getText().equals(nombreCliente)){
+            cliente.click();
+            addStep("cliente "+nombreCliente+" seleccionado exitosamente",false, Status.PASSED,false);
+        }else{
+            addStep("Error, cliente "+nombreCliente+" no encontrado",true, Status.FAILED,true);
+        }
     }
 }

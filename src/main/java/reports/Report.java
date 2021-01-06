@@ -1,6 +1,6 @@
 package reports;
 
-import drivers.DriverContest;
+import drivers.DriverContext;
 import io.qameta.allure.Allure;
 import io.qameta.allure.model.Status;
 import io.qameta.allure.model.StepResult;
@@ -40,7 +40,7 @@ public class Report {
 
     private static void reportScreenshot(){
         File scrfile;
-        scrfile = ((TakesScreenshot) DriverContest.getDriver()).getScreenshotAs(OutputType.FILE);
+        scrfile = ((TakesScreenshot) DriverContext.getDriver()).getScreenshotAs(OutputType.FILE);
         File foto = new File(scrfile.getPath());
         InputStream image;
         try {

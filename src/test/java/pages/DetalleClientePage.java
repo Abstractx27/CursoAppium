@@ -7,6 +7,7 @@ import io.appium.java_client.pagefactory.AndroidFindBy;
 import io.appium.java_client.pagefactory.AppiumFieldDecorator;
 import io.qameta.allure.model.Status;
 import org.openqa.selenium.support.PageFactory;
+import org.testng.Assert;
 
 import static reports.Report.addStep;
 import static utils.Utils.esperarObjeto;
@@ -49,6 +50,12 @@ public class DetalleClientePage {
 
     @AndroidFindBy(id = "com.rodrigo.registro:id/buttonDefaultPositive")
     private MobileElement btnAceptarVenta;
+
+    @AndroidFindBy(id = "com.rodrigo.registro:id/vercli_ultVenta")
+    private MobileElement detalleTotal;
+
+    @AndroidFindBy(id = "com.rodrigo.registro:id/cp_precio")
+    private MobileElement precioProducto;
 
     public void validarVistaDetalleCliente(){
         if(esperarObjeto(lblSubtitulo,3)){
@@ -140,6 +147,34 @@ public class DetalleClientePage {
         }
     }
 
+    public void validacionFinal(String cantidad){
+        int ctd = Integer.parseInt(cantidad);
+        int valor = 0;
+        int total = 0;
+        String total2 = "";
+        if (detalleTotal.getText().contains("pizza")){
 
+            btnAnadirVenta.click();
+            if(esperarObjeto(tituloSeleccionProducto,3)){
+                productoPizza.click();
+                valor = Integer.parseInt(precioProducto.getText());
+                DriverContext.getDriver().navigate().back();
+                total = ctd * valor;
+                total2 = String.valueOf(total);
+                if (detalleTotal.getText().contains(total2)){
+                    Assert.assertTrue(true);
+                    addStep("Coincide el total del detalle con el calculado",false, Status.PASSED,false);
+                }else{
+                    Assert.assertTrue(false);
+                    addStep("No coinciden los totales",false, Status.PASSED,false);
+                }
+
+
+            }
+        }else{
+            addStep("Error, No se presenta el producto en el detalle de la compra",true, Status.FAILED,true);
+        }
+
+    }
 
 }

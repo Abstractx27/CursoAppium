@@ -32,4 +32,14 @@ public class AsignarVentaCase {
         detalleClientePage.validarPopUp();
         detalleClientePage.tapBtnAceptar();
     }
+
+    public void validacionTest(){
+        carruselPage.validarVistaDesplegada();
+        carruselPage.recorrerCarrusel();
+        carruselPage.tapBtnHecho();
+
+        registroPage.validarVistaDesplegada();
+        registroPage.tapCliente(nombre);
+        detalleClientePage.validacionFinal(cantidad);
+    }
 }

@@ -29,4 +29,13 @@ public class AsignarVentaCliente {
         asignarVentaCase.flujoTest();
         finalAssert();
     }
+
+    @Test(priority = 2, description = "Validación final del Test")
+    public void validacion(){
+
+        AsignarVentaCase asignarVentaCase = new AsignarVentaCase();
+
+        asignarVentaCase.validacionTest();
+        finalAssert();
+    }
 }
